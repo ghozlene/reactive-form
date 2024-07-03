@@ -28,9 +28,34 @@ export class AppComponent {
     this.signupForm.statusChanges.subscribe((status) => {
       console.log(status);
     });
+    this.signupForm.patchValue({
+
+      'userData': {
+        'username': 'achref',
+        'email': "achref@example.com"
+      }
+    });
+    this.signupForm.setValue({
+
+      'userData': {
+        'username': 'achref',
+        'email': "test@example.com"
+      },
+      'gender': 'female',
+      'hobbies': []
+    });
   }
   onSubmit() {
     console.log(this.signupForm);
+    this.signupForm.reset({
+      'userData': {
+        'username': '',
+        'email': ""
+      },
+      'gender': 'female',
+      'hobbies': []
+    });
+
   }
 
   onAddHobby() {
